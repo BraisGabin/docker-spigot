@@ -1,13 +1,5 @@
 FROM java:8
 
-# Install dependencies.
-RUN apt-get update -y \
-	&& apt-get install -y --no-install-recommends \
-		ca-certificates \
-		curl \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
-
 # Install gosu.
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
 	&& curl -o /usr/local/bin/gosu -fsSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" \
